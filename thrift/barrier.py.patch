@@ -1,0 +1,26 @@
+--- thrift/gen-py/barrier/barrier.py	2016-10-25 16:06:51.631781496 +0100
++++ thrift/gen-py/barrier/barrier.py.lsd	2016-10-26 17:23:22.588586229 +0100
+@@ -69,6 +69,7 @@
+ 
+   def recv_create(self):
+     iprot = self._iprot
++    iprot.trans.lsd_getreply()
+     (fname, mtype, rseqid) = iprot.readMessageBegin()
+     if mtype == TMessageType.EXCEPTION:
+       x = TApplicationException()
+@@ -100,6 +101,7 @@
+ 
+   def recv_wait(self):
+     iprot = self._iprot
++    iprot.trans.lsd_getreply()
+     (fname, mtype, rseqid) = iprot.readMessageBegin()
+     if mtype == TMessageType.EXCEPTION:
+       x = TApplicationException()
+@@ -131,6 +133,7 @@
+ 
+   def recv_destroy(self):
+     iprot = self._iprot
++    iprot.trans.lsd_getreply()
+     (fname, mtype, rseqid) = iprot.readMessageBegin()
+     if mtype == TMessageType.EXCEPTION:
+       x = TApplicationException()

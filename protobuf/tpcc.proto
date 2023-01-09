@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package novalincs.cs.tpcc;
+
+message warehouse {
+  string name = 1;
+  string street_1 = 2;
+  string street_2 = 3;
+  string city = 4;
+  string state = 5;
+  string zip = 6;
+  double tax = 7;
+}
+
+message district {
+  int32 w_id = 1;
+  string name = 2;
+  string street_1 = 3;
+  string street_2 = 4;
+  string city = 5;
+  string state = 6;
+  string zip = 7;
+  double tax = 8;
+}
+
+message customer {
+  int32 d_id = 1;
+  int32 w_id = 2;
+  string first = 3;
+  string middle = 4;
+  string last = 5;
+  string street_1 = 6;
+  string street_2 = 7;
+  string city = 8;
+  string state = 9;
+  string zip = 10;
+  string phone = 11;
+  string since = 12;
+  string credit = 13;
+  string credit_lim = 14;
+  double discount = 15;
+}
+
+message customer_index {
+  repeated int32 c_id = 1;
+}
+
+message history {
+  int32 c_id = 1;
+  int32 c_d_id = 2;
+  int32 c_w_id = 3;
+  int32 d_id = 4;
+  int32 w_id = 5;
+  string date = 6;
+  double amount = 7;
+  string data = 8;
+}
+
+message order {
+  int32 d_id = 1;
+  int32 w_id = 2;
+  int32 c_id = 3;
+  string entry_d = 4;
+  int32 ol_cnt = 5;
+  bool all_local = 6;
+}
+
+message order_line {
+  int32 i_id = 1;
+  int32 supply_w_id = 2;
+  int32 quantity = 3;
+  double amount = 4;
+  string dist_info = 5;
+}
+
+message item {
+  int32 im_id = 1;
+  string name = 2;
+  double price = 3;
+  string data = 4;
+}
+
+message stock {
+  string dist_01 = 1;
+  string dist_02 = 2;
+  string dist_03 = 3;
+  string dist_04 = 4;
+  string dist_05 = 5;
+  string dist_06 = 6;
+  string dist_07 = 7;
+  string dist_08 = 8;
+  string dist_09 = 9;
+  string dist_10 = 10;
+  string data = 11;
+}

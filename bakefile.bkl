@@ -1,0 +1,1196 @@
+toolsets = gnu;
+
+////////////////////////////////////////////////////////////////////////////////
+// server
+program server-occ {
+  defines = USE_BATCH_WRITES;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-occ-woundwait {
+  defines = USE_BATCH_WRITES DEADLOCK_WOUNDWAIT;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-occ-waitdie {
+  defines = USE_BATCH_WRITES DEADLOCK_WAITDIE;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-occ-nowait {
+  defines = USE_BATCH_WRITES DEADLOCK_NOWAIT;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-2pl {
+  defines = TWOPL USE_BATCH_WRITES;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-2pl-woundwait {
+  defines = TWOPL USE_BATCH_WRITES DEADLOCK_WOUNDWAIT;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-2pl-waitdie {
+  defines = TWOPL USE_BATCH_WRITES DEADLOCK_WAITDIE;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+program server-2pl-nowait {
+  defines = TWOPL USE_BATCH_WRITES DEADLOCK_NOWAIT;
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core rocksdb z snappy bz2;
+  libdirs += "lib/rocksdb-4.11.2";
+  libdirs += "lib/thrift-0.9.3/lib";
+  includedirs += "lib/rocksdb-4.11.2/include";
+  includedirs += "lib/thrift-0.9.3/include";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    server/vlock.cc
+    server/std_unordered_map.cc
+    server/rocks_db.cc
+    server/storage.cc
+    server/data_manager.cc
+    server/main.cc
+    common/config.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// distributed barrier
+program barrier {
+  outputdir = dist;
+  libs = boost_program_options thriftnb thrift event_extra event_core;
+  compiler-options = "-std=c++11";
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  warnings = all;
+  multithreading = false;
+  sources {
+    barrier/server.cc
+    common/config.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// assert benchmark
+program asrt-std-occ {
+  defines = YCSB_ASSERT_BENCH;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-std-occ-2pcseq {
+  defines = YCSB_ASSERT_BENCH TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-std-2pl {
+  defines = YCSB_ASSERT_BENCH TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-lsd-occ {
+  defines = YCSB_ASSERT_BENCH YCSB_LSD;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-lsd-occ-assume {
+  defines = YCSB_ASSERT_BENCH YCSB_ASSERT_BENCH_ASSUME YCSB_LSD;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-lsd-occ-2pcseq {
+  defines = YCSB_ASSERT_BENCH YCSB_LSD TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-lsd-occ-2pcseq-assume {
+  defines = YCSB_ASSERT_BENCH YCSB_ASSERT_BENCH_ASSUME YCSB_LSD TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program asrt-lsd-2pl {
+  defines = YCSB_ASSERT_BENCH YCSB_LSD TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// hot key benchmark
+program hotk-std-occ {
+  defines = YCSB_HOTKEY_BENCH;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program hotk-std-occ-2pcseq {
+  defines = YCSB_HOTKEY_BENCH TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program hotk-std-2pl {
+  defines = YCSB_HOTKEY_BENCH TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program hotk-lsd-occ {
+  defines = YCSB_HOTKEY_BENCH YCSB_LSD;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program hotk-lsd-occ-2pcseq {
+  defines = YCSB_HOTKEY_BENCH YCSB_LSD TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program hotk-lsd-2pl {
+  defines = YCSB_HOTKEY_BENCH YCSB_LSD TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// increment benchmark
+program incr-std-occ {
+  defines = YCSB_INCR_BENCH;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program incr-std-occ-2pcseq {
+  defines = YCSB_INCR_BENCH TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program incr-std-2pl {
+  defines = YCSB_INCR_BENCH TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program incr-lsd-occ {
+  defines = YCSB_INCR_BENCH YCSB_LSD;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program incr-lsd-occ-2pcseq {
+  defines = YCSB_INCR_BENCH YCSB_LSD TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program incr-lsd-2pl {
+  defines = YCSB_INCR_BENCH YCSB_LSD TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// ycsb
+program ycsb-std-occ {
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program ycsb-std-occ-2pcseq {
+  defines = TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program ycsb-std-2pl {
+  defines = TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program ycsb-lsd-occ {
+  defines = YCSB_LSD;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program ycsb-lsd-occ-2pcseq {
+  defines = YCSB_LSD TWOPC_SEQUENTIAL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+program ycsb-lsd-2pl {
+  defines = YCSB_LSD TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = true;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // barrier client
+    barrier/client.cc
+    thrift/gen-cpp/barrier.cpp
+    thrift/gen-cpp/barrier_constants.cpp
+    thrift/gen-cpp/barrier_types.cpp
+    // ycsb
+    bench/ycsb/ycsbc.cc
+    bench/ycsb/core/core_workload.cc
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// client test
+program client-test-occ {
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = false;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // client test
+    client/test.cc
+  }
+}
+program client-test-2pl {
+  defines = TWOPL;
+  outputdir = dist;
+  includedirs = include;
+  libdirs = lib;
+  libs = boost_program_options thrift hdr_histogram;
+  includedirs += "lib/thrift-0.9.3/include";
+  libdirs += "lib/thrift-0.9.3/lib";
+  compiler-options = "-std=c++11";
+  warnings = all;
+  multithreading = false;
+  sources {
+    common/config.cc
+    // sharding
+    common/sharding_hash.cc
+    // lsd client
+    client/client.cc
+    client/txn_manager.cc
+    thrift/gen-cpp/data_manager.cpp
+    thrift/gen-cpp/data_manager_constants.cpp
+    thrift/gen-cpp/data_manager_types.cpp
+    thrift/gen-cpp/types_constants.cpp
+    thrift/gen-cpp/types_types.cpp
+    // client test
+    client/test.cc
+  }
+}

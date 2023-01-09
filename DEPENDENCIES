@@ -1,0 +1,3 @@
+thrift: 
+    version: 0.9.3
+    url: https://thrift.apache.org

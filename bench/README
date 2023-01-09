@@ -1,0 +1,7 @@
+ycsb:
+    commit: e0a9c82
+    url: https://github.com/basicthinker/YCSB-C
+
+tpcc:
+    commit: 0e3a46e
+    url: https://github.com/apavlo/py-tpcc

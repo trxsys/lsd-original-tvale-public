@@ -1,0 +1,10 @@
+--- thrift/gen-cpp/types_types.cpp	2016-02-29 10:40:04.000000000 +0000
++++ thrift/gen-cpp/types_types.cpp.patched	2016-02-29 10:40:57.000000000 +0000
+@@ -10,6 +10,7 @@
+ #include <ostream>
+ 
+ #include <thrift/TToString.h>
++#include "../workarounds.h"
+ 
+ namespace novalincs { namespace cs { namespace lsd {
+ 

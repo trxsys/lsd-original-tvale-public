@@ -1,0 +1,30 @@
+[ycsb]
+# host1:#threads1 host2:#threads2...
+instances = node1:1
+
+[barrier]
+host = node1
+port = 9000
+
+[server]
+# host1:port1 host2:port2...
+instances = node11:8000 node11:8001
+# std_unordered_map rocksdb
+storage = rocksdb
+
+[python]
+# hash tpcc
+sharding = hash
+# occ 2pl
+ccontrol = 2pl
+# no yes
+assume_predicates = no
+2pc_sequential = no
+
+[tpcc]
+# host
+coord = node1
+# host1:#threads1 host2:#threads2...
+clients = node1:1
+path = /localhome/tvale/lsd-experiments/lsd/bench/tpcc/pytpcc
+use_lsd = no

@@ -1,0 +1,9 @@
+thrift/gen-cpp/*
+thrift/gen-py/*
+servers.txt
+*.xcodeproj
+*.o
+*.d
+dist/*
+*.pyc
+GNUmakefile

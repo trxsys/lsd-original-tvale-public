@@ -1,0 +1,4 @@
+Because we are using unordered_map, we add the following line to
+gen-cpp/types_types.cpp: (see types_types.cpp.patch)
+
+#include "../workarounds.h"

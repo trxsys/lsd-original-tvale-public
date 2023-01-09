@@ -1,0 +1,24 @@
+--- thrift-0.9.3/lib/py/src/transport/THttpClient.py	2016-04-21 22:12:05.000000000 +0100
++++ thrift-0.9.3/lib/py/src/transport/THttpClient.py.lsd	2016-04-21 22:12:54.000000000 +0100
+@@ -111,10 +111,6 @@
+     return _f
+ 
+   def flush(self):
+-    if self.isOpen():
+-      self.close()
+-    self.open()
+-
+     # Pull data out of buffer
+     data = self.__wbuf.getvalue()
+     self.__wbuf = StringIO()
+@@ -143,7 +139,9 @@
+     # Write payload
+     self.__http.send(data)
+ 
+-    # Get reply to flush the request
++  def lsd_getreply(self):
++    # Call this from upwards in the stack *before* the protocol attempts to 
++    # read, e.g. from the generated code's recv_* methods
+     self.code, self.message, self.headers = self.__http.getreply()
+ 
+   # Decorate if we know how to timeout
