@@ -6,7 +6,7 @@ The lazy state determination API allows to easily expose the semantics of applic
 
 Our evaluation shows that our approach can achieve up to 5× more throughput with 1.5× less latency than standard techniques in the popular TPC-C benchmark.
 
-## Intalling
+## Installing
 
 1. thrift/compile.sh
 2. scripts/compile.sh debug|release #threads
